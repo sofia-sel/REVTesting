@@ -145,6 +145,7 @@ class Serial():
     # SetEnableAllSerial - Only runs on serial
     #-------------------------------------
     def SetEnableAllSerial(self, value):
+        print("here")
         # ser.write(("enable M0 " + str(value)+ '\n').encode())
         # ser.write(("enable M1 " + str(value)+ '\n').encode())
         # ser.write(("enable M2 " + str(value)+ '\n').encode())
@@ -167,6 +168,8 @@ class Serial():
             if value == 1:
                 REVModules[0].motors[motor_num].enable()
                 REVModules[0].motors[motor_num].setMode(0,1)
+            elif value == 0:
+                REVModules[0].motors[motor_num].disable()
             else:
                 REVModules[0].motors[motor_num].disable()
 
@@ -176,7 +179,7 @@ class Serial():
         commMod.openActivePort()
         REVModules = []
         REVModules = commMod.discovery()
-        ser.write((msg).encode())
+        # ser.write((msg).encode())
 		
         REVModules[0].motors[motor_num].setPower(msg * 32000)
 			#response = ser.readline().decode('utf-8').rstrip()
@@ -321,7 +324,7 @@ def ControllerSupportApproxEngLib(flag):
 						# cmd = "set M0 " + str(P1)
 						cmd = float(P1)
 						if flag == "s":
-							Serial.WriteToSerial(cmd, 0)
+							Serial.WriteToSerial(cmd, 0 )
 						elif flag == "w":
 							ws.send(cmd)
 						elif flag == "u":
