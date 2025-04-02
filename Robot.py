@@ -343,7 +343,7 @@ def ControllerSupportApproxEngLib(flag):
 						# cmd = "set M3 " + str(P3) # M3 is connected to the M2 slot
 						cmd = float(P3)
 						if flag == "s":
-							Serial.WriteToSerial(cmd, 3)
+							Serial.WriteToSerial(cmd, 2)
 						elif flag == "w":
 							ws.send(cmd)
 						elif flag == "u":
@@ -358,7 +358,7 @@ def ControllerSupportApproxEngLib(flag):
 							# cmd = "set M2 " + str(P4)
 							cmd = float(P4)
 							if flag == "s":
-								Serial.WriteToSerial(cmd, 2)
+								Serial.WriteToSerial(cmd, 3)
 							elif flag == "w":
 								ws.send(cmd)
 							elif flag == "u":

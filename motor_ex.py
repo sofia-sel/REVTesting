@@ -43,7 +43,7 @@ try:
 	
 except Exception as e:
 	print(e)
-	print("Error Searcing for Hubs")
+	print("Error Searching for Hubs")
 
 # try: 
 	# REVModules = []
